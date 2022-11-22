@@ -6,13 +6,12 @@ if($_SESSION['logged_in'] != True || check_system_disabled()) {
     exit();
 }
 open_html();
-
+show_nav();
 $SERVER = 'localhost';
 $USER   = 'emr';
 $PASS   = 'password';
 $DBNAME = 'EMR';
 
-echo '<center><a href="index.php">Back to main page</a></center>';
 echo '<center><h2>Current tips: <br></h2></center>';
 $db = mysqli_connect($SERVER, $USER, $PASS, $DBNAME);
 if(!db) {

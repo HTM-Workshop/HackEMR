@@ -70,7 +70,6 @@ function login() {
         </div>
         <a>Your IP Address: ' . $_SERVER['REMOTE_ADDR'] . '</a><br>
         <a href="register.php">Register</a></center>';
-          #<a href="register.php">Register</a> - <a href="forgot.php">Reset Password</a></center>'
 }
 
 
@@ -88,15 +87,12 @@ function main() {
     # check if user is logged in and session is valid
     if(check_login() == True) {
         
-        # main functionality
-        centered_message("Successfully logged in");
-        print '<br><center>
-            <a href="tip.php" class="button">Enter a new tip!</a><br>
-            <a href="test.php" class="button">Admin DB Access</a><br>
-            <a href="testinject.php" class="button">User ID Checker</a><br>
-            <a href="phpmyadmin/index.php" class="button">phpMyAdmin</a><br><br>
-            <a href="logoff.php" class="button">Logoff</a>
-            ';
+        show_nav();
+        print '<center><blockquote>Welcome to the Hackable EMR system. This system was intentionally programmed with 
+        some of the worst security problems possible. Even with a non-admin account, you can easily
+        get admin access as well as view/upload arbitrary patient information and files.<br><br>It hopefully
+        goes without saying, but this system intentionally violates many HIPAA standards and should
+        NEVER be used for storing PHI (Protected Healthcare Information).</blockquote></center>';
         #show_loading_spinner();
 
     } else {
@@ -104,7 +100,6 @@ function main() {
     }
 
     # close html
-    tip();
     close_html();
     exit();
 }

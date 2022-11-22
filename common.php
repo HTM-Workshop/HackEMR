@@ -32,6 +32,7 @@ function message_box($message, $centered = True) {
 }
 
 function close_html() {
+  tip();
   print "</body></html>";
 }
 
@@ -45,7 +46,7 @@ function check_system_disabled() {
 }
 
 function tip() {
-  echo '<br><br><br><br>';
+  echo '<br>';
   $SERVER = 'localhost';
   $USER   = 'emr';
   $PASS   = 'password';
@@ -60,6 +61,21 @@ function tip() {
   message_box('Tip: ' . $row['text']);
 }
 
+function show_nav() {
+  print '<nav>
+  <button class="button" onclick=\'window.location.href="index.php"\';">Home</button>
+  <button class="button" onclick=\'window.location.href="patient.php"\';">Patient Lookup</button>
+  <button class="button" onclick=\'window.location.href="tip.php"\';">Enter a new tip!</button>';
+  if($_SESSION['is_admin'] == 1) {
+    print '<center><h5>Admin Tools</h5></center><br>
+    <button class="button" onclick=\'window.location.href="test.php"\'>User List</button>
+    <button class="button" onclick=\'window.location.href="testinject.php"\'>User ID Checker</button>
+    <button class="button" onclick=\'window.location.href="phpmyadmin/index.php"\'>phpMyAdmin</button>
+    <br><br><br><br><br>';
+  }
 
+  print '<button class="button" onclick=\'window.location.href="logoff.php"\'>Logoff</button>';
+  print '</nav>';
+}
 
 ?>

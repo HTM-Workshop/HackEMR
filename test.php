@@ -1,28 +1,21 @@
 <?php
 session_start();
 include 'common.php';
-
+open_html();
+show_nav();
 
 if($_SESSION['logged_in'] != True || check_system_disabled()) {
     header('Refresh: 0; URL = index.php');
     exit();
 }
 if($_SESSION['is_admin'] != 1) {
-    echo '<center><h1>Access Denied</h1>
-    <a href="index.php">Back to main page</a></center>';
+    echo '<center><h1>Access Denied</h1>';
+    echo '<img src="img/drevil.jpeg">';
     exit();
 }
 
-echo "<HTTP>";
-echo "<center><h3>Test database: </h3></center>";
-echo '<head>
-		<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Sans+Mono" />
-		<style>
-		body {
-			font-family: "Droid Sans Mono";font-size: 22px;
-		}
-		</style>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+echo "<center><h3>User List </h3></center>";
+echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
         <style type="text/css">
             tr.header
@@ -44,16 +37,12 @@ echo '<head>
             });
         </script>
         <title></title>
-    </head><body>
-		<center>
-		<a href="index.php">Back to main page</a>
-		</center>
+    <body>
 		<br>
         <table class="striped" align=center>
             <tr class="header">
                 <td>ID</td>
                 <td>User Name</td>
-                <td>Password</td>
                 <td>Enabled</td>
                 <td>Reg Time BPM</td>
                 <td>Is Admin</td>
@@ -78,7 +67,6 @@ if(mysqli_num_rows($result) > 0) {
 		echo "<tr>";
 		echo "<td>" . $row["id"] . "</td>";
 		echo "<td>" . $row["username"] . "</td>";
-		echo "<td>" . $row["password"] . "</td>";
 		echo "<td>" . $row["enabled"] . "</td>";
 		echo "<td>" . $row["regtime"] . "</td>";
 		echo "<td>" . $row["is_admin"] . "</td>";
@@ -88,5 +76,6 @@ if(mysqli_num_rows($result) > 0) {
 	echo "No results.";
 }
 
-echo "</table></body></HTTP>";
+echo '</table>';
+close_html();
 ?>

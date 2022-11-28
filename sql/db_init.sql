@@ -1,0 +1,4 @@
+CREATE DATABASE EMR;
+CREATE USER 'emr'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON EMR.* TO 'emr'@'localhost';
+FLUSH PRIVILEGES;

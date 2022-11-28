@@ -88,11 +88,11 @@ function main() {
     if(check_login() == True) {
         
         show_nav();
-        print '<center><blockquote>Welcome to the Hackable EMR system. This system was intentionally programmed with 
+        print '<article>Welcome to the Hackable EMR system. This system was intentionally programmed with 
         some of the worst security problems possible. Even with a non-admin account, you can easily
         get admin access as well as view/upload arbitrary patient information and files.<br><br>It hopefully
         goes without saying, but this system intentionally violates many HIPAA standards and should
-        NEVER be used for storing PHI (Protected Healthcare Information).</blockquote></center>';
+        NEVER be used for storing PHI (Protected Healthcare Information).</article>';
         #show_loading_spinner();
 
     } else {

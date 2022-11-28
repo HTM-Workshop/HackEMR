@@ -1,3 +1,4 @@
+USE EMR;
 CREATE TABLE patients (
     id              INTEGER PRIMARY KEY AUTO_INCREMENT,
     first_name      VARCHAR(64) NOT NULL,

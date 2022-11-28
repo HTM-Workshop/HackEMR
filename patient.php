@@ -9,13 +9,13 @@ if($_SESSION['logged_in'] != True || check_system_disabled()) {
     exit();
 }
 
-print '<center>
-    <br><br>Patient ID:<br>
+print '<div class=\'parent\'>
+<div class=\'child inline-block-child\'>
+    <br><br>Patient ID:</h1><br>
     <form method="post">
     <input name="id" type=text placeholder="id" required><br>
-    <input name="submit" class="buttonlogin" type="submit" value="Submit"></h1></input>
-    </form>
-</center>';
+    <input name="submit" class="buttonlogin" type="submit" value="Submit"></input>
+    </form></div>';
 
 $SERVER = 'localhost';
 $USER   = 'emr';
@@ -47,13 +47,13 @@ if(isset($_SESSION['patient_view'])) {
     $last_name = $row['last_name'];
     $weight = $row['weight'];
     $age = $row['age'];
-    echo'<blockquote>
+    echo '<div class=\'child inline-block-child\'>
     <form action="patient.php" method="post" enctype="multipart/form-data">
     <pre>Upload file to patient record:</pre>
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value="Upload" name="submit">
-    </form><br>';
-    print("<center><h2>Patient Information:</h2></center>");
+    </form></div></div>';
+    print("<article><blockquote><center><h2>Patient Information:</h2></center>");
     echo "<pre>First Name: $first_name</pre>";
     echo "<pre>Last Name: $last_name</pre>";
     echo "<pre>Weight: $weight</pre>";
@@ -61,10 +61,13 @@ if(isset($_SESSION['patient_view'])) {
     echo "<hr>Patient Files:<br>";
     $fileList = glob('patient_files/' . $_SESSION['patient_view'] . '/*');
     foreach($fileList as $filename){
-        echo "<a href=$filename>$filename</a><br>";
+        echo "<a href='$filename' target='_blank'>$filename</a><br>";
     }
-    echo '</blockquote>';
+    echo '</blockquote></article>';
+} else {
+    echo '</div>';
 }
+
 
 close_html();
 ?>

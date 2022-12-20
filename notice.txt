@@ -1,0 +1,12 @@
+New rules have been implemented for the hospital effective FEB/8/2020:
+
+1. All patients must wear a mask at all times while in the hospital.
+2. All visitors must be screened for symptoms of COVID-19 before entering the hospital.
+3. All staff must follow proper handwashing protocols and wear protective gear when in contact with patients.
+4. All patients must maintain social distancing while in the hospital.
+5. All patients must be accompanied by a designated caregiver while in the hospital.
+6. All visitors must check in at the front desk and present a valid form of identification.
+7. All visitors must stay in designated areas of the hospital and not enter patient rooms.
+8. All visitors must practice proper cough etiquette and use a tissue when coughing or sneezing.
+9. All visitors must follow the hospital’s guidelines for personal hygiene.
+10. All visitors must refrain from bringing food, drinks, or other items into the hospital.

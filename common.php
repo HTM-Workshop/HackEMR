@@ -74,6 +74,7 @@ function tip() {
 function show_nav() {
   print '<nav><ul>
   <button class="button" onclick=\'window.location.href="index.php"\';">Home</button><br>
+  <button class="button" onclick=\'window.location.href="lfi.php"\';">Notices</button><br>
   <button class="button" onclick=\'window.location.href="patient.php"\';">Patient Lookup</button><br>
   <button class="button" onclick=\'window.location.href="tip.php"\';">Enter a new tip!</button><br>';
   if($_SESSION['is_admin'] == 1) {

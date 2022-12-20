@@ -4,14 +4,6 @@ include 'common.php';
 
 session_start();
 
-# ensure user has a valid session
-function check_login() {
-    if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == True) {
-        return True;
-    } else {
-        return False;
-    }
-}
 
 function login() {
     if(isset($_POST['submit'])) {

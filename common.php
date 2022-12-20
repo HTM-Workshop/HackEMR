@@ -2,6 +2,15 @@
 
 $VERSION = '0.0.1-alpha1';
 
+# ensure user has a valid session
+function check_login() {
+  if(isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == True) {
+      return True;
+  } else {
+      return False;
+  }
+}
+
 function open_html() {
     global $VERSION;
     print "<html>

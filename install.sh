@@ -6,6 +6,19 @@ if [ "$EUID" -ne 0 ]
   exit
 fi
 
+# get user response
+echo "This will install HackEMR and all dependencies to this server."
+while true
+do
+    read -r -p 'Enter "y" to continue: ' choice
+    case "$choice" in
+      n|N) exit;;
+      y|Y) break;;
+      *) exit;;
+    esac
+done
+
+
 # install dependencies
 echo "-- Installing dependencies..."
 apt update

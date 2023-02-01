@@ -4,9 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Upload phpdev",
+            "label": "Build pack",
             "type": "shell",
-            "command": "rsync -aPvr * test@hacktest.toastland.net:/var/www/html/",
+            "command": "tar --exclude='.git' --exclude='.vscode' -czvf hackemr_pack.tar.gz *",
             "problemMatcher": []
         }
     ]

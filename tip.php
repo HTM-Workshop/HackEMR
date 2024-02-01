@@ -23,7 +23,7 @@ $DBNAME = 'EMR';
 
 echo '<center><h2>Current tips: <br></h2></center>';
 $db = mysqli_connect($SERVER, $USER, $PASS, $DBNAME);
-if(!db) {
+if(!$db) {
     die("Connection failure: " . mysqli_connect_error());
 }
 if(isset($_POST['submit'])) {

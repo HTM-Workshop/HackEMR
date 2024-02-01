@@ -83,8 +83,10 @@ function main() {
         print '<article>Welcome to the Hackable EMR system. This system was intentionally programmed with 
         some of the worst security problems possible. Even with a non-admin account, you can easily
         get admin access as well as view/upload arbitrary patient information and files.<br><br>It hopefully
-        goes without saying, but this system intentionally violates many HIPAA standards and should
-        NEVER be used for storing PHI (Protected Healthcare Information).</article>';
+        goes without saying, but this system intentionally violates as many HIPAA regulations possible and should
+        NEVER be used for storing PHI (Protected Healthcare Information).<br><br>
+        Note: All doctors, staff, patients, medical records, images of identification/insurance/credit cards are generated randomly by AI.
+        Any likeness to actual people or official documents are purely coincidental. All medical devices shown are simulated.</article>';
         #show_loading_spinner();
 
     } else {

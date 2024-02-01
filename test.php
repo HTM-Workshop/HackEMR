@@ -54,7 +54,7 @@ $PASS   = 'password';
 $DBNAME = 'EMR';
 
 $db = mysqli_connect($SERVER, $USER, $PASS, $DBNAME);
-if(!db) {
+if(!$db) {
 	die("Connection failure: " . mysqli_connect_error());
 }
 

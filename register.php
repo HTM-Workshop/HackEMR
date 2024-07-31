@@ -56,7 +56,7 @@ function register() {
 
         # account information checks out, add to database and return to index.php
         if($query = $db->prepare('INSERT INTO users (username, password, enabled) VALUES (?, ?, 1)')) {
-            $query->bind_param('ss', $un, $pw);
+            $query->bind_param('ss', $un, md5($pw));
             $query->execute();
             $query->store_result();
             $query->close();

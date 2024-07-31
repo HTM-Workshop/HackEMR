@@ -1,0 +1,100 @@
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulated EMR with ECG Integration</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+    }
+    .log-container {
+        height: 400px;
+        overflow-y: scroll;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+</style>
+</head>
+<body>
+    <h1>Simulated EMR with ECG Integration</h1>
+    <div class="log-container" id="logContainer">
+        <!-- Log entries will be inserted here -->
+    </div>
+
+    <script>
+        const logContainer = document.getElementById('logContainer');
+
+        // Function to generate a random integer within a range
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // Function to get current time in HH:mm:ss format
+        function getCurrentTime() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            return `${hours}:${minutes}:${seconds}`;
+        }
+
+        function getRandomPage() {
+            const pages = ["index.php", "patient.php", "common.php", "new-patient.php"];
+            return pages[Math.floor(Math.random() * pages.length)]
+        }
+
+        function getRandomUser() {
+            const users = ["john.smith", "dr.evil", "mr.bean", "admin"];
+            return users[Math.floor(Math.random() * users.length)]
+        }
+
+        // Function to add a new log entry
+        function addLogEntry(message) {
+            const logEntry = document.createElement('div');
+            logEntry.textContent = `${getCurrentTime()} ${message}`;
+            logContainer.appendChild(logEntry);
+
+            // Scroll to the bottom of the log container
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        // Simulated ECG polling and logging
+        function simulateECGPolling() {
+            setInterval(() => {
+                const patientId = getRandomInt(1, 100); // Generate a random patient ID for simulation
+                const randomEvent = getRandomInt(1, 5); // Randomly select an event type
+
+                switch (randomEvent) {
+                    case 1:
+                        addLogEntry(`INFO: ECG (10.20.8.${getRandomInt(2, 243)}) data received from telemetry device for Patient ${patientId}`);
+                        break;
+                    case 2:
+                        addLogEntry(`WARNING: Irregular heartbeat detected for Patient ${patientId}`);
+                        break;
+                    case 3:
+                        addLogEntry(`ERROR: Loss of ECG signal - PATIENT #${patientId}`);
+                        break;
+                    case 4:
+                        addLogEntry(`SECURITY: Page ${getRandomPage()} accessed by user ${getRandomUser()} (10.20.10.${getRandomInt(2, 243)}).`);
+                        break;
+                    case 5:
+                        addLogEntry(`SECURITY: Login from user ${getRandomUser()} (10.20.10.${getRandomInt(2, 243)}).`);
+                        break;
+                    default:
+                        addLogEntry(`INFO: ECG monitoring started for Patient ${patientId}`);
+                        break;
+                }
+            }, getRandomInterval());
+        }
+
+        // Function to get a random interval between 2 and 6 seconds
+        function getRandomInterval() {
+            return Math.floor(Math.random() * 4000) + 2000; // between 2000ms and 6000ms
+        }
+
+        // Start simulating ECG polling and logging
+        simulateECGPolling();
+    </script>
+
+

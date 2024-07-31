@@ -8,7 +8,7 @@ session_start();
 function login() {
     if(isset($_POST['submit'])) {
         $un = $_POST['username'];
-        $pw = $_POST['password'];
+        $pw = md5($_POST['password']);
         
         # open connection to database and submit query
         $SERVER = 'localhost';

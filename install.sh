@@ -42,5 +42,7 @@ done
 
 echo "-- Configuring SQL server..."
 cd sql
+service mariadb start
 chmod +x runasroot.sh
 ./runasroot.sh
+service apache2 start
